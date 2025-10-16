@@ -32,6 +32,7 @@ createRoot(document.getElementById('root')).render(
 
 
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/search/:pokemonName" element={<SearchPage />} />
 
       </Routes>
 
