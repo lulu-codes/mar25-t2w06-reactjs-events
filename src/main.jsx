@@ -2,11 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import {App} from './App.jsx'
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
 import { Homepage } from './pages/Homepage.jsx'
 import { SearchPage } from './pages/SearchPage.jsx'
 import { AboutPage } from './pages/AboutPage.jsx'
 import { Navbar } from './components/Navbar.jsx'
+import { ContactPage } from './pages/ContactPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,7 +22,15 @@ createRoot(document.getElementById('root')).render(
 
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<AboutPage />} />
+
+        <Route path="/about" element={<Outlet />}>
+        {/* /about renders  AboutPage */}
+          <Route index element={<AboutPage />}/>
+          {/* /about/contact does not render AboutPage, only ContactPage! */}
+          <Route path="/about/contact" element={<ContactPage />} />
+        </Route>
+
+
         <Route path="/search" element={<SearchPage />} />
 
       </Routes>

@@ -5,6 +5,7 @@
 - Home page: `somewebsite.com`
 - Searcher page: `somewebsite.com/search`
 - About page: `somewebsite.com/about`
+- Contact page `somewebsite.com/about/contact`
 
 # React + Vite
 
